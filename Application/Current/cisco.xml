@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Cisco_Ports>
+    <Port>
+        <Interface>ETH01</Interface>
+        <Status>ON</Status>
+        <Message>Acc Vlan 20</Message>
+    </Port>
+    <Port>
+        <Interface>ETH02</Interface>
+        <Status>AGG</Status>
+        <Message>Aggregation</Message>
+    </Port>
+    <Port>
+        <Interface>ETH03</Interface>
+        <Status>ACC</Status>
+        <Message>VLAN 30</Message>
+    </Port>
+    <Port>
+        <Interface>ETH04</Interface>
+        <Status>ACC</Status>
+        <Message>VLAN 15</Message>
+    </Port>
+    <Port>
+        <Interface>ETH05</Interface>
+        <Status>ACC</Status>
+        <Message>VLAN 12</Message>
+    </Port>
+    <Port>
+        <Interface>ETH06</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH07</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH08</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH09</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH10</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH11</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH12</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH13</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH14</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH15</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH16</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH17</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH18</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH19</Interface>
+        <Status>TRK</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH20</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH21</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH22</Interface>
+        <Status>OFF</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH23</Interface>
+        <Status>AGG</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>ETH24</Interface>
+        <Status>AGG</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>Gi0/0</Interface>
+        <Status>AGG</Status>
+        <Message />
+    </Port>
+    <Port>
+        <Interface>Gi0/1</Interface>
+        <Status>AGG</Status>
+        <Message />
+    </Port>
+</Cisco_Ports>

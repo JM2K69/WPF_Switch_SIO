@@ -1,0 +1,816 @@
+<Controls:MetroWindow  
+xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+Title="PPE Switchs"
+Name="Main" 
+Height="550" 
+Width="1050" 
+BorderBrush="DodgerBlue"
+Topmost="True"
+WindowStartupLocation="CenterScreen"
+WindowStyle="None"
+BorderThickness="1" 		
+GlowBrush="{DynamicResource AccentColorBrush}">
+<!--
+
+
+-->
+
+ <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Cobalt.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+             <Style x:Key="colorDataGridCellStyle" TargetType="{x:Type DataGridCell}">
+                 <Style.Triggers>
+                    <DataTrigger Binding="{Binding Status}" Value="OFF">
+                     <Setter Property="Foreground" Value="Black" />
+                     <Setter Property="FontWeight" Value="Bold" />
+                     </DataTrigger>
+                     <DataTrigger Binding="{Binding Status}" Value="ON">
+                     <Setter Property="Foreground" Value="#FF3EC220" />
+                     <Setter Property="FontWeight" Value="Bold" />
+                   </DataTrigger>
+                    <DataTrigger Binding="{Binding Status}" Value="ACC">
+                     <Setter Property="Foreground" Value="#FFCF184F" />
+                     <Setter Property="FontWeight" Value="Bold" />
+                   </DataTrigger>
+                   <DataTrigger Binding="{Binding Status}" Value="TRK">
+                     <Setter Property="Foreground" Value="#E7E9790F" />
+                     <Setter Property="FontWeight" Value="Bold" />
+                   </DataTrigger>
+                   <DataTrigger Binding="{Binding Status}" Value="AGG">
+                     <Setter Property="Foreground" Value="#E764A9F3" />
+                     <Setter Property="FontWeight" Value="Bold" />
+                   </DataTrigger>
+                 </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+        
+    </Window.Resources>	
+
+<Grid>
+
+<TabControl Name="Tabcontrol" HorizontalAlignment="Left" Height="450"  VerticalAlignment="Top" Width="1050" TabStripPlacement="Left" Margin="10 10 10 10 " Controls:TabControlHelper.Underlined="SelectedTabItem">
+    <TabItem>
+      <TabItem.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                               <iconPacks:PackIconFontAwesome Kind="QuestionCircleRegular"  Width="24" Height="24" Margin="0 12 0 0 "/>
+                               <Label Margin="2 0 0 0" Content="Config" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
+                         </StackPanel>
+                     </DataTemplate>
+             </TabItem.HeaderTemplate>
+    <StackPanel Margin="15 15 15 15 ">
+         
+	 <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0 0 0 10"> 
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20 0 15 ">
+        <Button  Name="Exit" Width="100" Height="40">Exit</Button>
+        <Label Margin="25 5 0 0" FontWeight="Bold">Port Status</Label>
+        <StackPanel Orientation="Vertical" Margin="10 -10 5 0">
+              		<Label Margin="-4 0 0 0">OFF</Label>
+              	<Rectangle  Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          	<StackPanel Orientation="Vertical" Margin="0 -10 5 0">
+              		<Label Margin="-4 0 0 0">ON</Label>
+              	<Rectangle  Width="24" Height="24"  Fill="#FF3EC220" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          	<StackPanel Orientation="Vertical" Margin="0 -10 5 0">
+              		<Label Margin="-4 0 0 0">ACC</Label>
+              	<Rectangle  Width="24" Height="24"  Fill="#FFCF184F" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          	<StackPanel Orientation="Vertical" Margin="0 -10 5 0">
+              		<Label Margin="-4 0 0 0">TRK</Label>
+              	<Rectangle  Width="24" Height="24"  Fill="#E7E9790F" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          	<StackPanel Orientation="Vertical" Margin="0 -10 5 0">
+              		<Label Margin="-4 0 0 0">AGG</Label>
+              	<Rectangle  Width="24" Height="24"  Fill="#E764A9F3" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+      </StackPanel>
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 0 0 0 ">
+         <Border BorderThickness="2,2,4,4"  Background="#FFE9E9E9" CornerRadius="8,8,8,8"  Width="740" Height="160" BorderBrush="Black"/>
+       </StackPanel>
+         	<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 -160 0 0 ">
+    		    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="15 0 0 0">
+              <Image Source="./hp.png" Width="40" Margin="-80 0 -20 0 "/>
+              <TextBlock Text="HP 1820-24G" FontSize="16" FontWeight="Bold" Height="25" Width="auto" TextAlignment="Center" Margin="-50 -120 0 0 " Foreground="#F6292424"/>
+          </StackPanel>
+          	<StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="-100 0 0 0 ">
+    	       
+            	<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+              	<iconPacks:PackIconMaterial Kind="Fan" Width="20" Height="20" Margin="65 5 0 0" Spin="true"/>
+              	<Label FontSize="14" FontWeight="Bold" Margin="0 0 90 0">Fan</Label>
+            	</StackPanel>
+            	
+            		<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            		<iconPacks:PackIconTypicons Kind="Power" Width="20" Height="20" Margin="65 5 0 0" Foreground="#FF197748" />
+              	<Label FontSize="14" FontWeight="Bold" Margin="0 0 90 0">Power</Label>
+            	</StackPanel>
+            	
+    	</StackPanel>
+          	<StackPanel Orientation="Vertical" VerticalAlignment="Center">	
+      		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+          		
+          		<StackPanel Orientation="Vertical">
+              		<Label Margin="2 0 0 0">1</Label>
+              	<Rectangle Name="Eth01" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          		<StackPanel Orientation="Vertical">
+              		<Label Margin="2 0 0 0">3</Label>
+              	<Rectangle Name="Eth03" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          		<StackPanel Orientation="Vertical">
+              		<Label Margin="2 0 0 0">5</Label>
+              	<Rectangle Name="Eth05" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          		<StackPanel Orientation="Vertical">
+              		<Label Margin="2 0 0 0">7</Label>
+              	<Rectangle Name="Eth07" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          		<StackPanel Orientation="Vertical">
+              		<Label Margin="2 0 0 0">9</Label>
+              	<Rectangle Name="Eth09" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          		<StackPanel Orientation="Vertical">
+              		<Label Margin="2 0 0 0">11</Label>
+              	<Rectangle Name="Eth11" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 20 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          		<StackPanel Orientation="Vertical">
+              		<Label Margin="2 0 0 0">13</Label>
+              	<Rectangle Name="Eth13" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          		<StackPanel Orientation="Vertical">
+              		<Label Margin="2 0 0 0">15</Label>
+              	<Rectangle Name="Eth15" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          		<StackPanel Orientation="Vertical">
+              		<Label Margin="2 0 0 0">17</Label>
+              	<Rectangle Name="Eth17" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	 </StackPanel>
+          		<StackPanel Orientation="Vertical">
+              		<Label Margin="2 0 0 0">19</Label>
+              	<Rectangle Name="Eth19" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          		<StackPanel Orientation="Vertical">
+              		<Label Margin="2 0 0 0">21</Label>
+              	<Rectangle Name="Eth21" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          		<StackPanel Orientation="Vertical">
+              		<Label Margin="2 0 0 0">23</Label>
+              	<Rectangle Name="Eth23" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+              									<Rectangle.OpacityMask>
+              										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+              									</Rectangle.OpacityMask>
+              	</Rectangle>
+          	</StackPanel>
+          			
+      		</StackPanel>
+      		
+    	<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+    	   
+        	   <StackPanel Orientation="Vertical">
+                  		
+                  	<Rectangle Name="Eth02" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="" >
+                  	                <Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                  									<Rectangle.OpacityMask>
+                  										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                  									</Rectangle.OpacityMask>
+                  	</Rectangle>
+                  	<Label Margin="2 0 0 0">2</Label>
+              	</StackPanel>
+        	   <StackPanel Orientation="Vertical">
+                  		
+                  	<Rectangle Name="Eth04" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                  									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                  									<Rectangle.OpacityMask>
+                  										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                  									</Rectangle.OpacityMask>
+                  	</Rectangle>
+                  	<Label Margin="2 0 0 0">4</Label>
+              	</StackPanel>
+        	   <StackPanel Orientation="Vertical">
+                  		
+                  	<Rectangle Name="Eth06" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                  									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                  									<Rectangle.OpacityMask>
+                  										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                  									</Rectangle.OpacityMask>
+                  	</Rectangle>
+                  	<Label Margin="2 0 0 0">6</Label>
+              	</StackPanel>
+        	   <StackPanel Orientation="Vertical">
+                  		
+                  	<Rectangle Name="Eth08" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                  									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                  									<Rectangle.OpacityMask>
+                  										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                  									</Rectangle.OpacityMask>
+                  	</Rectangle>
+                  	<Label Margin="2 0 0 0">8</Label>
+              	</StackPanel>
+             <StackPanel Orientation="Vertical">
+                  		
+                  	<Rectangle Name="Eth10" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                  									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                  									<Rectangle.OpacityMask>
+                  										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                  									</Rectangle.OpacityMask>
+                  	</Rectangle>
+                  	<Label Margin="2 0 0 0">10</Label>
+              	</StackPanel>
+        	   <StackPanel Orientation="Vertical">
+                  		
+                  	<Rectangle Name="Eth12" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 20 0" ToolTip="">
+                  									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                  									<Rectangle.OpacityMask>
+                  										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                  									</Rectangle.OpacityMask>
+                  	</Rectangle>
+                  	<Label Margin="2 0 0 0">12</Label>
+              	</StackPanel>
+        	   <StackPanel Orientation="Vertical">
+                  		
+                  	<Rectangle Name="Eth14" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                  									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                  									<Rectangle.OpacityMask>
+                  										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                  									</Rectangle.OpacityMask>
+                  	</Rectangle>
+                  	<Label Margin="2 0 0 0">14</Label>
+              	</StackPanel>
+        	   <StackPanel Orientation="Vertical">
+                  		
+                  	<Rectangle Name="Eth16" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                  									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                  									<Rectangle.OpacityMask>
+                  										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                  									</Rectangle.OpacityMask>
+                  	</Rectangle>
+                  	<Label Margin="2 0 0 0">16</Label>
+              	</StackPanel>
+             <StackPanel Orientation="Vertical">
+                  		
+                  	<Rectangle Name="Eth18" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                  									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                  									<Rectangle.OpacityMask>
+                  										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                  									</Rectangle.OpacityMask>
+                  	</Rectangle>
+                  	<Label Margin="2 0 0 0">18</Label>
+              	</StackPanel>
+        	   <StackPanel Orientation="Vertical">
+                  		
+                  	<Rectangle Name="Eth20" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                  									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                  									<Rectangle.OpacityMask>
+                  										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                  									</Rectangle.OpacityMask>
+                  	</Rectangle>
+                  	<Label Margin="2 0 0 0">20</Label>
+              	</StackPanel>
+             <StackPanel Orientation="Vertical">
+                  		
+                  	<Rectangle Name="Eth22" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                  									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                  									<Rectangle.OpacityMask>
+                  										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                  									</Rectangle.OpacityMask>
+                  	</Rectangle>
+                  	<Label Margin="2 0 0 0">22</Label>
+              	</StackPanel>
+        	   <StackPanel Orientation="Vertical">
+                  	<Rectangle Name="Eth24" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                  									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                  									<Rectangle.OpacityMask>
+                  										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                  									</Rectangle.OpacityMask>
+                  	</Rectangle>
+                  	<Label Margin="2 0 0 0">24</Label>
+              	</StackPanel>
+              	
+    	</StackPanel>
+    	    
+    </StackPanel>
+     <StackPanel Orientation="Vertical">
+       <Rectangle Fill="#9B6F7773" HorizontalAlignment="Left"
+                   Height="25" Width="25" Margin="30,50,0,0"
+                   Stroke="Black" StrokeThickness="2"
+                   VerticalAlignment="Top" 
+                   RadiusY="2" RadiusX="2"/>
+        <Rectangle Fill="#9B6F7773" HorizontalAlignment="Left"
+                   Height="25" Width="25" Margin="30,7,0,0"
+                   Stroke="Black" StrokeThickness="2"
+                   VerticalAlignment="Top" 
+                   RadiusY="2" RadiusX="2"/>
+              	</StackPanel>
+  	  </StackPanel>   
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 20 0 0 ">
+           <Border BorderThickness="2,2,4,4"  Background="#FFADC3B8" CornerRadius="8,8,8,8"  Width="740" Height="160" BorderBrush="Black"/>
+          </StackPanel>
+      	<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 -140 0 0 ">
+  	      <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="15 0 -40 0">
+  		   <Image Source="./cisco.png" Width="55" Margin="-60 0 -60 0 "/>
+            	<TextBlock Text="Cisco 2960-24G" FontSize="16" FontWeight="Bold" Height="25" Width="auto" TextAlignment="Center" Margin="20 -120 0 0 " Foreground="#F6292424"/>               
+        </StackPanel>
+        	<StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="-25 0 0 0 ">   
+          	<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            	<iconPacks:PackIconMaterial Kind="Fan" Width="20" Height="20" Margin="-30 5 0 0" Spin="true"  />
+            	<Label FontSize="14" FontWeight="Bold" Margin="0 0 90 0">Fan</Label>
+          	</StackPanel>       	
+          	<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+          		<iconPacks:PackIconTypicons Kind="Power" Width="20" Height="20" Margin="-30 5 0 0" Foreground="#FF197748"/>
+            	<Label FontSize="14" FontWeight="Bold" Margin="0 0 90 0" >Power</Label>
+          	</StackPanel>          	
+  	      </StackPanel>
+        	<StackPanel Orientation="Vertical" VerticalAlignment="Center">	
+      		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">      		
+        		<StackPanel Orientation="Vertical">
+            		<Label Margin="2 0 0 0">1</Label>
+            	<Rectangle Name="CEth01" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+            									<Rectangle.OpacityMask>
+            										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+            									</Rectangle.OpacityMask>
+            	</Rectangle>
+        	</StackPanel>
+        		<StackPanel Orientation="Vertical">
+            		<Label Margin="2 0 0 0">3</Label>
+            	<Rectangle Name="CEth03" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+            									<Rectangle.OpacityMask>
+            										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+            									</Rectangle.OpacityMask>
+            	</Rectangle>
+        	</StackPanel>
+        		<StackPanel Orientation="Vertical">
+            		<Label Margin="2 0 0 0">5</Label>
+            	<Rectangle Name="CEth05" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+            									<Rectangle.OpacityMask>
+            										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+            									</Rectangle.OpacityMask>
+            	</Rectangle>
+        	</StackPanel>
+        		<StackPanel Orientation="Vertical">
+            		<Label Margin="2 0 0 0">7</Label>
+            	<Rectangle Name="CEth07" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+            									<Rectangle.OpacityMask>
+            										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+            									</Rectangle.OpacityMask>
+            	</Rectangle>
+        	</StackPanel>
+        		<StackPanel Orientation="Vertical">
+            		<Label Margin="2 0 0 0">9</Label>
+            	<Rectangle Name="CEth09" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+            									<Rectangle.OpacityMask>
+            										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+            									</Rectangle.OpacityMask>
+            	</Rectangle>
+        	</StackPanel>
+        		<StackPanel Orientation="Vertical">
+            		<Label Margin="2 0 0 0">11</Label>
+            	<Rectangle Name="CEth11" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 20 0" ToolTip="">
+            									<Rectangle.OpacityMask>
+            										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+            									</Rectangle.OpacityMask>
+            	</Rectangle>
+        	</StackPanel>
+        		<StackPanel Orientation="Vertical">
+            		<Label Margin="2 0 0 0">13</Label>
+            	<Rectangle Name="CEth13" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+            									<Rectangle.OpacityMask>
+            										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+            									</Rectangle.OpacityMask>
+            	</Rectangle>
+        	</StackPanel>
+        		<StackPanel Orientation="Vertical">
+            		<Label Margin="2 0 0 0">15</Label>
+            	<Rectangle Name="CEth15" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+            									<Rectangle.OpacityMask>
+            										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+            									</Rectangle.OpacityMask>
+            	</Rectangle>
+        	</StackPanel>
+        		<StackPanel Orientation="Vertical">
+            		<Label Margin="2 0 0 0">17</Label>
+            	<Rectangle Name="CEth17" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+            									<Rectangle.OpacityMask>
+            										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+            									</Rectangle.OpacityMask>
+            	</Rectangle>
+        	 </StackPanel>
+        		<StackPanel Orientation="Vertical">
+            		<Label Margin="2 0 0 0">19</Label>
+            	<Rectangle Name="CEth19" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+            									<Rectangle.OpacityMask>
+            										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+            									</Rectangle.OpacityMask>
+            	</Rectangle>
+        	</StackPanel>
+        		<StackPanel Orientation="Vertical">
+            		<Label Margin="2 0 0 0">21</Label>
+            	<Rectangle Name="CEth21" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+            									<Rectangle.OpacityMask>
+            										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+            									</Rectangle.OpacityMask>
+            	</Rectangle>
+        	</StackPanel>
+        		<StackPanel Orientation="Vertical">
+            		<Label Margin="2 0 0 0">23</Label>
+            	<Rectangle Name="CEth23" Width="24" Height="24"  Fill="#FF303030" Margin="0 0 7 0" ToolTip="">
+            									<Rectangle.OpacityMask>
+            										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+            									</Rectangle.OpacityMask>
+            	</Rectangle>
+        	</StackPanel>
+        			
+    		</StackPanel>
+    		
+  	<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+  	   
+      	   <StackPanel Orientation="Vertical">
+                		
+                	<Rectangle Name="CEth02" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="2 0 0 0">2</Label>
+            	</StackPanel>
+      	   <StackPanel Orientation="Vertical">
+                		
+                	<Rectangle Name="CEth04" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="2 0 0 0">4</Label>
+            	</StackPanel>
+      	   <StackPanel Orientation="Vertical">
+                		
+                	<Rectangle Name="CEth06" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="2 0 0 0">6</Label>
+            	</StackPanel>
+      	   <StackPanel Orientation="Vertical">
+                		
+                	<Rectangle Name="CEth08" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="2 0 0 0">8</Label>
+            	</StackPanel>
+           <StackPanel Orientation="Vertical">
+                		
+                	<Rectangle Name="CEth10" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="2 0 0 0">10</Label>
+            	</StackPanel>
+      	   <StackPanel Orientation="Vertical">
+                		
+                	<Rectangle Name="CEth12" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 20 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="2 0 0 0">12</Label>
+            	</StackPanel>
+      	   <StackPanel Orientation="Vertical">
+                		
+                	<Rectangle Name="CEth14" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="2 0 0 0">14</Label>
+            	</StackPanel>
+      	   <StackPanel Orientation="Vertical">
+                		
+                	<Rectangle Name="CEth16" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="2 0 0 0">16</Label>
+            	</StackPanel>
+           <StackPanel Orientation="Vertical">
+                		
+                	<Rectangle Name="CEth18" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="2 0 0 0">18</Label>
+            	</StackPanel>
+      	   <StackPanel Orientation="Vertical">
+                		
+                	<Rectangle Name="CEth20" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="2 0 0 0">20</Label>
+            	</StackPanel>
+           <StackPanel Orientation="Vertical">
+                		
+                	<Rectangle Name="CEth22" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="2 0 0 0">22</Label>
+            	</StackPanel>
+      	   <StackPanel Orientation="Vertical">
+                		
+                	<Rectangle Name="CEth24" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="2 0 0 0">24</Label>
+            	</StackPanel>
+            	
+            	
+  	</StackPanel>
+  	    
+  </StackPanel>
+   <StackPanel Orientation="Vertical" Margin="0 68 0 0">
+       <StackPanel Orientation="Horizontal">
+        <Rectangle Fill="#9B6F7773" HorizontalAlignment="Left"
+                   Height="25" Width="25" Margin="11,-25,0,0"
+                   Stroke="Black" StrokeThickness="2"
+                   VerticalAlignment="Top" 
+                   RadiusY="2" RadiusX="2"/>
+                   <Rectangle Fill="#9B6F7773" HorizontalAlignment="Left"
+                   Height="25" Width="25" Margin="11,-25,0,0"
+                   Stroke="Black" StrokeThickness="2"
+                   VerticalAlignment="Top" 
+                   RadiusY="2" RadiusX="2"/>
+       </StackPanel>
+                	<Rectangle Name="CGI00" Width="24" Height="24"  Fill="#FF303030" Margin="-18 7 7 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="5 0 0 0">Gi0/0</Label>
+            	</StackPanel>
+            	 <StackPanel Orientation="Vertical" Margin="-29 68 0 0">
+                	<Rectangle Name="CGI01" Width="24" Height="24"  Fill="#FF303030" Margin="0 7 7 0" ToolTip="">
+                									<Rectangle.LayoutTransform>
+                                      <RotateTransform Angle="-180"/>
+                                    </Rectangle.LayoutTransform>
+                									<Rectangle.OpacityMask>
+                										<VisualBrush Stretch="Fill" Visual="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Ethernet}}"/>
+                									</Rectangle.OpacityMask>
+                	</Rectangle>
+                	<Label Margin="2 0 0 0">Gi0/1</Label>
+            	</StackPanel>
+      	</StackPanel>
+  
+      </StackPanel>
+  	
+         </StackPanel>
+   </TabItem>
+    <TabItem>
+        <TabItem.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                               <iconPacks:PackIconFeatherIcons Kind="Edit"  Width="24" Height="24" Margin="0 12 0 0 "/>
+                               <Label Margin="2 0 0 0" Content="Change" Foreground="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
+                         </StackPanel>
+                     </DataTemplate>
+             </TabItem.HeaderTemplate>
+    <StackPanel Margin="15 15 15 15 ">
+      <StackPanel Orientation="Vertical" Margin="5">
+        <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+          <ComboBox Name="SwitchModel"
+                              SelectedValuePath="Content"
+                              Width="170"
+                              Height="30" 
+                              Margin="0 0 10 0"
+                              Controls:TextBoxHelper.ClearTextButton="True"
+                              Controls:TextBoxHelper.Watermark="Please select a model"
+                              BorderThickness="1"
+                              SelectedIndex="0">
+                        <ComboBoxItem Name="Cisco">Cisco</ComboBoxItem> 
+                        <ComboBoxItem Name="HP">HP</ComboBoxItem>
+                    </ComboBox>
+          <Button Name="load"  Margin="0 0 10 0" Width="70" Height="40">
+            <Button.Content>
+            <StackPanel Orientation="Horizontal">
+                  <iconPacks:PackIconMaterial Kind="File" Foreground="Blue" Margin="0 3 1 0"/>
+                  <Label>LOAD</Label>
+              </StackPanel>
+            </Button.Content>
+          </Button>
+          <Button Name="reload" Width="95" Height="40"  Margin="0 0 10 0">
+            <Button.Content>
+            <StackPanel Orientation="Horizontal">
+                  <iconPacks:PackIconMaterial Kind="Reload" Width="32" Foreground="Green"  Margin="0 3 1 0"/>
+                  <Label Margin="-5 0 0 0 ">RELOAD</Label>
+              </StackPanel>
+            </Button.Content>
+          </Button>
+          <Button Name="save" Margin="0 0 10 0" Width="70" Height="40">
+            <Button.Content>
+              <StackPanel Orientation="Horizontal">
+                  <iconPacks:PackIconMaterial Margin="0 3 1 0"  Foreground="DarkGreen"  Kind="ContentSave" />
+                  <Label>SAVE</Label>
+              </StackPanel>
+            </Button.Content>
+          </Button>
+		  <Button Name="backup" Margin="0 0 10 0" Width="75" Height="40">
+            <Button.Content>
+              <StackPanel Orientation="Horizontal">
+			      <iconPacks:PackIconMaterialDesign  Margin="0 3 1 0"  Foreground="DarkGreen"  Kind="Backup"/>
+                  <Label>BACKUP</Label>
+              </StackPanel>
+            </Button.Content>
+          </Button>
+        </StackPanel>
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+           <Image Name="logoC" Source="./cisco.png" Width="130" Margin="0 0 40 0 " Visibility="Visible"/>
+		    <Image Name="logoH" Source="./hp.png" Width="130" Margin="0 0 40 0 " Visibility="Collapsed"/>
+            <Border Background="GhostWhite" BorderBrush="Silver" BorderThickness="2" CornerRadius="8,8,3,3">
+             <DataGrid Name="Datagrid"
+                  Margin="10"
+                  Width="330"
+                  Height="320"
+                  AutoGenerateColumns="False" 
+                  ScrollViewer.CanContentScroll="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <DataGrid.Columns>
+                 <DataGridTextColumn Binding="{Binding Interface}" Header="Interface" IsReadOnly="True" Width="auto"/>
+                 <DataGridTextColumn Binding="{Binding Status}" Header="Status" IsReadOnly="True" Width="auto"  CellStyle="{StaticResource colorDataGridCellStyle}"/>
+                 <DataGridTextColumn Binding="{Binding Message}" Header="Message" IsReadOnly="True" Width="auto"/>
+                    <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <Button x:Name="Edit"  Background="#198C19" 
+                                            Height="28" Width="28" Cursor="Hand" HorizontalContentAlignment="Stretch" 
+                                            VerticalContentAlignment="Stretch" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                            BorderThickness="0" Margin="0,0,0,0">
+                                            <Button.Content>
+                                            <iconPacks:PackIconMaterialLight Kind="Pencil" Foreground="White"  />
+                                            </Button.Content>
+                                        </Button>
+
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+            </DataGrid.Columns>
+         </DataGrid>
+            </Border>
+          </StackPanel>
+           </StackPanel>  
+    </StackPanel>
+    </TabItem>
+
+ </TabControl>
+	
+
+	</Grid>
+
+  
+</Controls:MetroWindow>
